@@ -40,93 +40,15 @@ impl Timeline {
             time: NaiveTime::parse_from_str("00:00:00.0", "%H:%M:%S%.f").expect("WHy!!!!"),
             left_time: NaiveTime::parse_from_str("00:00:02.0", "%H:%M:%S%.f").expect("WHy!!!!"),
             playback_speed: 1.0,
-            tracks: vec![
-                Box::new(KeyFrameTrack {
-                    name: "Test".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Test 2".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Transform".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation4".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation3".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation1".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation2".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation5".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation6".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation7".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation8".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotation9".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotationa".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotations".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotationg".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Rotationgg".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 1".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 2".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 3".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 4".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 5".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 6".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 7".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 8".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 9".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 10".to_string(),
-                }),
-                Box::new(KeyFrameTrack {
-                    name: "Dummy 11".to_string(),
-                }),
-            ],
-
+            tracks: {
+                (0..20)
+                    .map(|i| {
+                        Box::new(KeyFrameTrack {
+                            name: format!("Test Track {}", i),
+                        }) as Box<dyn Track>
+                    })
+                    .collect::<Vec<_>>()
+            },
             playing: false,
         }
     }
