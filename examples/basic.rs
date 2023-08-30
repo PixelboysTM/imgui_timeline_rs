@@ -1,6 +1,6 @@
 use std::time::Instant;
 
-use imgui::{Condition, ConfigFlags, Direction, FontSource, StyleColor};
+use imgui::{ConfigFlags, Direction, FontSource, StyleColor};
 use imgui_wgpu::{Renderer, RendererConfig};
 use pollster::block_on;
 use winit::{
