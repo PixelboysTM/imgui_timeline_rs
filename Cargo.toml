@@ -1,0 +1,21 @@
+[package]
+name = "imgui_timeline_rs"
+version = "0.0.1"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+imgui = { version = "^0.11", features = ["tables-api", "docking"] }
+cgmath = "^0.18"
+chrono = "0.4.26"
+
+
+[dev-dependencies]
+winit = "0.27.2"
+wgpu = "0.17.0"
+env_logger = "0.10.0"
+pollster = "0.3.0"
+bytemuck = { version = "1.13.1", features = ["derive"] }
+imgui-winit-support = { version = "0.11.0" }
+imgui-wgpu = { path = "../imgui-wgpu-rs" }
